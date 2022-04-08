@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"go-api-git/handler"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,15 +13,9 @@ func main() {
 	router := gin.Default()
 	v1 := router.Group("/v1")
 
-	v1.GET("/", rootHandler)
+	v1.GET("/", handler.RootHandler)
 	v1.GET("/student/:id", handler.StudentGetHandler)
 
 	router.Run(":8080")
 
-}
-
-func rootHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"Status": "Response OK",
-	})
 }
