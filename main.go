@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-api-git/handler"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -14,7 +15,7 @@ func main() {
 	v1 := router.Group("/v1")
 
 	v1.GET("/", rootHandler)
-	v1.GET("/student/:id", rootHandler)
+	v1.GET("/student/:id", handler.StudentGetHandler)
 
 	router.Run(":8080")
 
