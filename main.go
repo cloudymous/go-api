@@ -14,6 +14,7 @@ func main() {
 	v1 := router.Group("/v1")
 
 	v1.GET("/", rootHandler)
+	v1.GET("/student/:id", rootHandler)
 
 	router.Run(":8080")
 
